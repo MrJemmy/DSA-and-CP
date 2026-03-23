@@ -9,8 +9,10 @@ class Solution:
         
         while(x!=0):
             print("x:",x, end=" ")
+            # we can reuse int(x / 10)
+
             # digit = x % 10 # can't use 
-            digit = 10 * int(x / 10)
+            digit = x - 10 * int(x / 10)
             # digit = int(math.fmod(x, 10))
 
             print("digit:",digit, end=" ")
