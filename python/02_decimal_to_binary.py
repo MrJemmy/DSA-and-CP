@@ -1,31 +1,25 @@
 class Solution:
-    def decimalToBinary1(self, n: int) -> int:
+    def decimalToBinary(self, n: int, m_size: int = 8) -> int:
+
+        if n < 0:
+            # -10 => 10 ignore -ve
+            # 1's complement which is ~ binary not opration on 10
+            # add 1 result in binary for -10
+            n = ~abs(n)+1
+
         binary = 0
         power = 1
+        count = m_size # require for -ve
 
-        while n != 0:
-            bit = n & 1
+        while n != 0 and count !=0:
+            bit = n & 1 # n - 10 * int(n / 10) => n % 10
             binary = (bit * power) + binary
             power *= 10
-            n = n >> 1
-
-        return binary
-    
-    def decimalToBinary2(self, n: int) -> int:
-        binary = 0
-        power = 1
-
-        while n != 0:
-            bit = n % 2
-            binary = (bit * power) + binary
-            power *= 10
-            n = n // 2
-
+            n = n >> 1 # int(n / 10) =>  n //= 10
+            count -= 1
         return binary
     
 x = 4
 a = Solution()
-result1 = a.decimalToBinary1(x)
-result2 = a.decimalToBinary2(x)
-print(result1)
-print(result2)
+result = a.decimalToBinary(x)
+print(result)
