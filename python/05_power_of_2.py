@@ -18,9 +18,15 @@ class Solution:
             
             # if powerOfTwo > INT_MAX/2: # limit for memory cap
             #     powerOfTwo *= 2 
-            powerOfTwo *= 2 
+            powerOfTwo *= 2 # powerOfTwo << 1 ?
 
         return False
+    
+    def isPowerOfTwoOpt(self, n: int) -> bool:
+        """
+        if it's power of 2 then it will have only one 1bit other are as 0big for positive
+        """
+        pass
 
 a = Solution().isPowerOfTwo(-1)
 print(a)
